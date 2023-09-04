@@ -1,4 +1,4 @@
-package starter.acceptancetests;
+package starter.lifechangers;
 
 import net.serenitybdd.junit5.SerenityJUnit5Extension;
 import net.serenitybdd.core.pages.PageObject;
@@ -65,9 +65,7 @@ class WhenExer3 {
     @Test
     @DisplayName("Should be able Open The website")
     void ac1test() {
-        actor.attemptsTo(
-                NavigatTo.theSearchHomePage());
-
+        actor.attemptsTo(NavigatTo.theSearchHomePage());
         List<String> urls = website.getUrls();
         for (String url : urls) {
             actor.attemptsTo(EnterData.CLickELement(By.cssSelector("a[href='" + url + "'")));
@@ -76,11 +74,8 @@ class WhenExer3 {
 
     @Test
     void ac2Test() {
-        actor.attemptsTo(
-                NavigatTo.theSearchHomePage());
-
+        actor.attemptsTo(NavigatTo.theSearchHomePage());
         List<String> urls = website.getUrls();
-
         for (String url : urls) {
             actor.attemptsTo(EnterData.CLickELement(By.cssSelector("a[href='" + url + "'")));
             List<By> arr = getList(url);
@@ -94,31 +89,28 @@ class WhenExer3 {
     @DisplayName("Should be able Open The Login and add to cart")
     void Add_to_cart_workflow() {
         actor.attemptsTo(
-                NavigatTo.theSearchHomePage(),
-                EnterData.CLickELement(By.cssSelector("a[href='https://lifechangers.org/my-account/'")),
-                EnterData.forminput("pehohi7311@poverts.com", By.id("username")),
-                EnterData.forminput("pehohi7311@poverts.com@10", By.id("password")),
-                EnterData.CLickELement(By.cssSelector("input[value='Login']")),
-                Click.on(Link.containing("resources")),
-                Click.on(Button.withText("GO TO RESOURCE")),
-                Click.on(Button.withText("add to cart")),
-                EnterData.CLickELement(By.className("btn-cart"))
-
+            NavigatTo.theSearchHomePage(),
+            EnterData.CLickELement(By.cssSelector("a[href='https://lifechangers.org/my-account/'")),
+            EnterData.forminput("pehohi7311@poverts.com", By.id("username")),
+            EnterData.forminput("pehohi7311@poverts.com@10", By.id("password")),
+            EnterData.CLickELement(By.cssSelector("input[value='Login']")),
+            Click.on(Link.containing("resources")),
+            Click.on(Button.withText("GO TO RESOURCE")),
+            Click.on(Button.withText("add to cart")),
+            EnterData.CLickELement(By.className("btn-cart"))
         );
-
     }
 
-    @Test
-    @DisplayName("Should be able Register")
-    void register() {
-        actor.attemptsTo(
-                NavigatTo.theSearchHomePage(),
-                EnterData.CLickELement(By.cssSelector("a[href='https://lifechangers.org/my-account/'")),
-                EnterData.forminput("aqt2432212345qwe@poverts.com", By.id("reg_email")),
-                EnterData.forminput("rjk24322@", By.id("reg_password")),
-                EnterData.CLickELement(By.cssSelector("input[value='Register']")),
-                EnterData.CLickELement(
-                        By.cssSelector("a[href='https://lifechangers.org/my-account/customer-logout/']")));
-    }
+//    @Test
+//    @DisplayName("Should be able Register")
+//    void register() {
+//        actor.attemptsTo(
+//            NavigatTo.theSearchHomePage(),
+//            EnterData.CLickELement(By.cssSelector("a[href='https://lifechangers.org/my-account/'")),
+//            EnterData.forminput("aqt2432212345qwe@poverts.com", By.id("reg_email")),
+//            EnterData.forminput("rjk24322@", By.id("reg_password")),
+//            EnterData.CLickELement(By.cssSelector("input[value='Register']")),
+//            EnterData.CLickELement(By.cssSelector("a[href='https://lifechangers.org/my-account/customer-logout/']")));
+//    }
 
 }

@@ -11,16 +11,11 @@ public class EnterData {
 
     public static Performable forminput(String searchTerm, By identifier) {
         return Task.where("Addes Data to input field",
-                Enter.theValue(searchTerm)
-                        .into(identifier)
-
+                Enter.theValue(searchTerm).into(identifier)
         );
     }
 
-    public static  Performable CLickELement(By identifier)
-    {
-        return  Task.where("Clicks ",
-                Click.on(identifier)
-                );
+    public static  Performable CLickELement(By identifier){
+        return  Task.where("Clicks ", Click.on(identifier));
     }
 }

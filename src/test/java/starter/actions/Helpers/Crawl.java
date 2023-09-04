@@ -13,25 +13,17 @@ import java.util.stream.Collectors;
 public class Crawl  extends PageObject{
 
     WebElementFacade navbar;
-
-
     List<String> urls;
     public void get_links(){
-
-
         navbar = find(By.id("menu-top-menu"));
-
         urls = navbar.findElements(By.tagName("a"))
-                                                    .stream()
-                                                    .map(webElement -> webElement.getAttribute("href"))
-                                                    .collect(Collectors.toList());
-//        find(By.id())
+                    .stream()
+                    .map(webElement -> webElement.getAttribute("href"))
+                    .collect(Collectors.toList());
     }
 
     public List<String> getUrls(){
         get_links();
         return urls;
     }
-
-
 }
