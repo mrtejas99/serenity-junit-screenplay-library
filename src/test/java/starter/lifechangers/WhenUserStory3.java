@@ -22,30 +22,30 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import starter.actions.Forminput.EnterData;
-import starter.actions.Helpers.Crawl;
+import starter.actions.Forminput.SendData;
+import starter.actions.Helpers.Crawler;
 
-import starter.actions.Verifiers.Verifier_Object;
-import starter.actions.navigation.NavigatTo;
+import starter.actions.Verifiers.Verifier;
+import starter.actions.navigation.NavigateTo;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
-import starter.actions.Forminput.EnterData;
-import starter.actions.navigation.NavigatTo;
+import starter.actions.Forminput.SendData;
+import starter.actions.navigation.NavigateTo;
 
 @ExtendWith(SerenityJUnit5Extension.class)
-class WhenExer3 {
+class WhenUserStory3 {
 
     @CastMember
     Actor actor;
 
     @Steps
-    Crawl website;
+    Crawler website;
 
     @Steps
-    Verifier_Object vr;
+    Verifier vr;
 
     public List<By> getList(String url) {
         switch (url) {
@@ -65,19 +65,19 @@ class WhenExer3 {
     @Test
     @DisplayName("Should be able Open The website")
     void ac1test() {
-        actor.attemptsTo(NavigatTo.theSearchHomePage());
+        actor.attemptsTo(NavigateTo.theSearchHomePage());
         List<String> urls = website.getUrls();
         for (String url : urls) {
-            actor.attemptsTo(EnterData.CLickELement(By.cssSelector("a[href='" + url + "'")));
+            actor.attemptsTo(SendData.CLickELement(By.cssSelector("a[href='" + url + "'")));
         }
     }
 
     @Test
     void ac2Test() {
-        actor.attemptsTo(NavigatTo.theSearchHomePage());
+        actor.attemptsTo(NavigateTo.theSearchHomePage());
         List<String> urls = website.getUrls();
         for (String url : urls) {
-            actor.attemptsTo(EnterData.CLickELement(By.cssSelector("a[href='" + url + "'")));
+            actor.attemptsTo(SendData.CLickELement(By.cssSelector("a[href='" + url + "'")));
             List<By> arr = getList(url);
             for (By id : arr) {
                 vr.verifyIfExists(id, actor);
@@ -89,15 +89,15 @@ class WhenExer3 {
     @DisplayName("Should be able Open The Login and add to cart")
     void Add_to_cart_workflow() {
         actor.attemptsTo(
-            NavigatTo.theSearchHomePage(),
-            EnterData.CLickELement(By.cssSelector("a[href='https://lifechangers.org/my-account/'")),
-            EnterData.forminput("pehohi7311@poverts.com", By.id("username")),
-            EnterData.forminput("pehohi7311@poverts.com@10", By.id("password")),
-            EnterData.CLickELement(By.cssSelector("input[value='Login']")),
+            NavigateTo.theSearchHomePage(),
+            SendData.CLickELement(By.cssSelector("a[href='https://lifechangers.org/my-account/'")),
+            SendData.forminput("tejas.lotlikar@xyzabc.com", By.id("username")),
+            SendData.forminput("12345678", By.id("password")),
+            SendData.CLickELement(By.cssSelector("input[value='Login']")),
             Click.on(Link.containing("resources")),
             Click.on(Button.withText("GO TO RESOURCE")),
             Click.on(Button.withText("add to cart")),
-            EnterData.CLickELement(By.className("btn-cart"))
+            SendData.CLickELement(By.className("btn-cart"))
         );
     }
 
@@ -107,8 +107,8 @@ class WhenExer3 {
 //        actor.attemptsTo(
 //            NavigatTo.theSearchHomePage(),
 //            EnterData.CLickELement(By.cssSelector("a[href='https://lifechangers.org/my-account/'")),
-//            EnterData.forminput("aqt2432212345qwe@poverts.com", By.id("reg_email")),
-//            EnterData.forminput("rjk24322@", By.id("reg_password")),
+//            EnterData.forminput("tejas.lotlikar@xyzabc.com", By.id("reg_email")),
+//            EnterData.forminput("12345678", By.id("reg_password")),
 //            EnterData.CLickELement(By.cssSelector("input[value='Register']")),
 //            EnterData.CLickELement(By.cssSelector("a[href='https://lifechangers.org/my-account/customer-logout/']")));
 //    }

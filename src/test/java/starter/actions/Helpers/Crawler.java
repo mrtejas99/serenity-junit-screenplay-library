@@ -10,7 +10,7 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Crawl  extends PageObject{
+public class Crawler  extends PageObject{
 
     WebElementFacade navbar;
     List<String> urls;

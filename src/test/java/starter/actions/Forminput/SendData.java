@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import net.serenitybdd.screenplay.actions.Enter;
 
-public class EnterData {
+public class SendData {
 
     public static Performable forminput(String searchTerm, By identifier) {
         return Task.where("Addes Data to input field",

@@ -6,7 +6,7 @@ import net.serenitybdd.screenplay.Task;
 import org.openqa.selenium.By;
 
 
-public class Verifier_Object extends PageObject {
+public class Verifier extends PageObject {
 
     public void verifyIfExists(By identifier, Actor actor){
          assert find(identifier).isPresent() : true;
